@@ -8,6 +8,16 @@
 </head>
 <body>
     <H1>This is Our Initial part of the Project of Devops</H1>
-    <button class="btn">Click me</button>
+    <button class="btn" id="myButton">Click me</button>
+    <script>
+        // Get the button element by its ID
+        const button = document.getElementById('myButton');
+
+        // Add an event listener to the button for the 'click' event
+        button.addEventListener('click', function() {
+            // Show a simple pop-up alert when clicked
+            alert('Button was clicked! This is your pop-up.');
+        });
+    </script>
 </body>
 </html>
