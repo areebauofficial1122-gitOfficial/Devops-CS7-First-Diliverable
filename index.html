@@ -9,6 +9,18 @@
 <body>
     <H1>This is Our Initial part of the Project of Devops</H1>
     <button class="btn" id="myButton">Click me</button>
+
+    <button id="addBtn">Add Numbers</button>
+
+    <p id="result"></p>
+
+     <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <button id="addBtn">Add Numbers</button>
+
+    <p id="result"></p>
+
     <script>
         // Get the button element by its ID
         const button = document.getElementById('myButton');
@@ -18,6 +30,21 @@
             // Show a simple pop-up alert when clicked
             alert('Button was clicked! This is your pop-up.');
         });
+      const button = document.getElementById("addBtn");
+
+        button.addEventListener("click", function () {
+
+            // Get values from input fields
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+
+            
+           const sum = num1 + num2;
+
+            // Show result
+            document.getElementById("result").innerText = "Sum is: " + sum;
+        });
+         
     </script>
 </body>
 </html>
