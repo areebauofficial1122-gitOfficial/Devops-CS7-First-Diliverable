@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/areebauofficial1122-gitOfficial/Devops-CS7-First-Diliverable.git'
+                git branch: 'main', url: 'https://github.com/areebauofficial1122-gitOfficial/Devops-CS7-First-Diliverable.git'
             }
         }
 
