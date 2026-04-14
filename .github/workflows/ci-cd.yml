@@ -11,28 +11,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
     # 1. Get code
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # 2. Build Docker Image
-    - name: Build Docker Image
-      run: docker build -t ramalkhan/initial:latest .
+    # 2. DEBUG SECRETS (Check this first in your logs!)
+    - name: Debug Secrets
+      run: |
+        if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then 
+          echo "ERROR: DOCKER_USERNAME is EMPTY. Check your GitHub Settings -> Secrets."
+          exit 1
+        else 
+          echo "SUCCESS: DOCKER_USERNAME is detected."
+        fi
 
-    # 3. Test (Run container)
-    - name: Run Container Test
-      run: docker run -d -p 3000:3000 ramalkhan/initial:latest
-
-    # 4. Login to Docker Hub
+    # 3. Login to Docker Hub (Do this before building)
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    # 5. Push Image
+    # 4. Build Docker Image
+    - name: Build Docker Image
+      run: docker build -t ramalkhan/initial:latest .
+
+    # 5. Test (Run container)
+    - name: Run Container Test
+      run: docker run -d -p 3000:3000 ramalkhan/initial:latest
+
+    # 6. Push Image
     - name: Push to Docker Hub
       run: docker push ramalkhan/initial:latest
 
-    # 6. Deploy to EC2 (optional)
+    # 7. Deploy to EC2
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
