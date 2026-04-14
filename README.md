@@ -15,4 +15,6 @@ Jenkinsfile made by Deher
 o Description of CI/CD pipeline 
 o Instructions to run and deploy the app 
 o A changelog section for updates 
-
+## Changelog
+- v1.0: Initial project
+- v1.1: Added Docker support
