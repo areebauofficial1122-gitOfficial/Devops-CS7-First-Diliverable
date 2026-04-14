@@ -14,5 +14,8 @@ Jenkinsfile made by Deher
 # Diliverable 4
 o Description of CI/CD pipeline 
 o Instructions to run and deploy the app 
+docker pull your-dockerhub-username/app-name
+docker run -p 3000:3000 app-name
 o A changelog section for updates 
+
 
