@@ -11,4 +11,8 @@ Button issue fixed
 testing webhook.
 Jenkinsfile made by Deher
 # Checking Jenkins working 
+# Diliverable 4
+o Description of CI/CD pipeline 
+o Instructions to run and deploy the app 
+o A changelog section for updates 
 
