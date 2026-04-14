@@ -19,3 +19,6 @@ docker run -p 3000:3000 app-name
 o A changelog section for updates 
 
 
+## Changelog
+- v1.0: Initial project
+- v1.1: Added Docker support
